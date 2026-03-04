@@ -4,7 +4,7 @@ public class CostVisitor implements VillageVisitor {
     public double getTotalCost() { return totalCost; }
 
     @Override
-    public void visitShape(ShapeLeaf shape) {
+    public void visitShape(SimpleShape shape) {
         totalCost += shape.getCost();
     }
 

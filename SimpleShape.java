@@ -1,16 +1,17 @@
-
 import java.util.*;
 
-public class ShapeLeaf implements VillageComponent {
-    private final String name;
+public abstract class SimpleShape implements VillageComponent {
+    private final String label;
     private final double cost;
     private final Map<String, Integer> resources;
 
-    public ShapeLeaf(String name, double cost, Map<String, Integer> resources) {
-        this.name = name;
+    protected SimpleShape(String label, double cost, Map<String, Integer> resources) {
+        this.label = label;
         this.cost = cost;
         this.resources = new LinkedHashMap<>(resources);
     }
+
+    public abstract String shapeType();
 
     public double getCost() { return cost; }
 
@@ -19,14 +20,15 @@ public class ShapeLeaf implements VillageComponent {
     }
 
     @Override
-    public String getName() { return name; }
+    public String getName() {
+        return label + " [" + shapeType() + "]";
+    }
 
     @Override
     public void accept(VillageVisitor visitor) {
         visitor.visitShape(this);
     }
 
-    // helper: map("Bricks",50,"Cement",10)
     public static Map<String, Integer> map(Object... kv) {
         if (kv.length % 2 != 0) throw new IllegalArgumentException("Need even args");
         Map<String, Integer> m = new LinkedHashMap<>();

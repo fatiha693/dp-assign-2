@@ -15,7 +15,7 @@ public class ReportVisitor implements VillageVisitor {
     }
 
     @Override
-    public void visitShape(ShapeLeaf shape) {
+    public void visitShape(SimpleShape shape) {
         line("- " + shape.getName() + " | cost=" + shape.getCost() + " | res=" + shape.getResources());
     }
 

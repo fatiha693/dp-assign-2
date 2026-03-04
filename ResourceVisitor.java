@@ -6,7 +6,7 @@ public class ResourceVisitor implements VillageVisitor {
     public Map<String, Integer> getTotals() { return totals; }
 
     @Override
-    public void visitShape(ShapeLeaf shape) {
+    public void visitShape(SimpleShape shape) {
         for (var e : shape.getResources().entrySet()) {
             totals.put(e.getKey(), totals.getOrDefault(e.getKey(), 0) + e.getValue());
         }

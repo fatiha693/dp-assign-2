@@ -10,20 +10,20 @@ public class BrickMangoPoolFactory implements VillageComboFactory {
         Village village = new Village(villageName);
 
         House house = new House("Brick House");
-        house.add(new ShapeLeaf("Wall(Rectangle)", 30, ShapeLeaf.map("Bricks", 50, "Cement", 10)));
-        house.add(new ShapeLeaf("Roof(Triangle)", 18, ShapeLeaf.map("Tiles", 20, "Wood", 5)));
-        house.add(new ShapeLeaf("Door(Rectangle)", 6, ShapeLeaf.map("Wood", 4)));
+        house.add(new RectangleShape("Wall", 30, SimpleShape.map("Bricks", 50, "Cement", 10)));
+        house.add(new TriangleShape("Roof", 18, SimpleShape.map("Tiles", 20, "Wood", 5)));
+        house.add(new RectangleShape("Door", 6, SimpleShape.map("Wood", 4)));
         village.add(house);
 
         Tree tree = new Tree("Mango Tree");
-        tree.add(new ShapeLeaf("Trunk(Cylinder)", 5, ShapeLeaf.map("Wood", 6)));
-        tree.add(new ShapeLeaf("Canopy(Circle)", 4, ShapeLeaf.map("Leaves", 20)));
-        tree.add(new ShapeLeaf("Mangoes(Small Circles)", 3, ShapeLeaf.map("Seeds", 3)));
+        tree.add(new CylinderShape("Trunk", 5, SimpleShape.map("Wood", 6)));
+        tree.add(new CircleShape("Canopy", 4, SimpleShape.map("Leaves", 20)));
+        tree.add(new CircleShape("Mangoes", 3, SimpleShape.map("Seeds", 3)));
         village.add(tree);
 
         WaterSource pool = new WaterSource("Swimming Pool");
-        pool.add(new ShapeLeaf("Pool Basin(Rectangle)", 40, ShapeLeaf.map("Cement", 30, "Steel", 10)));
-        pool.add(new ShapeLeaf("Water(Rectangle)", 0, ShapeLeaf.map("WaterLiters", 5000)));
+        pool.add(new RectangleShape("Pool Basin", 40, SimpleShape.map("Cement", 30, "Steel", 10)));
+        pool.add(new RectangleShape("Water", 0, SimpleShape.map("WaterLiters", 5000)));
         village.add(pool);
 
         return village;
